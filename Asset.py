@@ -24,3 +24,13 @@ class Asset:
     def get_isencrypted(self):
         return self.__isencrypted
     
+    # setters
+    def set_name(self, name):
+        self.__name = name
+
+    def set_description(self, description):
+        self.__description = description
+
+    def set_isencrypted(self, status):
+        self.__isencrypted = status
+ 
