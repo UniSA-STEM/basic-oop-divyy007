@@ -37,3 +37,7 @@ class Hacker:
 
     def set_rig(self, rig):
         self.__rig = rig
+
+    # adds asset object to hacker's inventory
+    def collect_asset(self, asset):
+        self.__inventory.append(asset)
