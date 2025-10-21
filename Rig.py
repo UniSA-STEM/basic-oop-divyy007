@@ -6,6 +6,8 @@ ID: <110449639>
 Username: <divyy007>
 This is my own work as defined by the University's Academic Misconduct Policy.
 """
+
+# class Rig with encapsulated attributes
 class Rig:
     def __init__(self, name):
         self.__name = name
@@ -14,6 +16,7 @@ class Rig:
         self.__broken = False
         self.__store_asset = []
 
+    #getters
     def get_name(self):
         return self.__name
 
@@ -28,3 +31,16 @@ class Rig:
 
     def get_assets(self):
         return self.__store_asset
+
+    #setters
+    def set_name(self, name):
+        self.__name = name
+
+    def set_damage(self, damage):
+        self.__damage = damage
+
+    def set_level(self, level):
+        self.__level = level
+
+    def set_broken(self, status):
+        self.__broken = status
