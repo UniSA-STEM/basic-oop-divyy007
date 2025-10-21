@@ -10,7 +10,7 @@ from rig import Rig
 from asset import Asset
 
 class Hacker:
-    def init(self, name):
+    def __init__(self, name):
         self.__name = name
         self.__trace_level = 0
         self.__rig = None          # hacker can have one rig at a time
@@ -54,3 +54,15 @@ class Hacker:
             return
         # if no cryptotoken found
         print(f"{self.__name} does not have a CryptoToken to acquire a rig.")
+
+    # increases trace
+    def increase_trace(self):
+        self.__trace_level += 1
+        if self.__trace_level >= 5:
+            print(f"Warning: {self._name}'s trace is very high ({self._trace_level})!")
+
+    # reduces trace
+    def reduce_trace(self):
+        if self.__trace_level > 0:
+            self.__trace_level -= 1
+        print(f"{self._name}'s trace level reduced to {self.__trace_level}")
