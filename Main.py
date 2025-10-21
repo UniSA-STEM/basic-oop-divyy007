@@ -70,3 +70,31 @@ for asset in hacker1.get_inventory():
         break
 else:
     print("CryptoToken not found in inventory.")
+    
+# Step 9: Add and encrypt an asset inside the rig
+print("\nStep 9: Encrypting Asset in Rig Storage")
+hacker1.get_rig().get_assets().append(Asset("Secret File", "Confidential data."))
+# Simulate encrypting without needing hacker.encrypt_asset()
+for asset in hacker1.get_rig().get_assets():
+    if asset.get_name() == "Secret File":
+        asset.set_isencrypted(True)
+        print(f"{asset.get_name()} has been encrypted in the rig storage.")
+        break
+else:
+    print("Secret File not found in Rig storage.")
+
+# Step 10: Manage trace level
+print("\nStep 10: Trace Level Demonstration")
+hacker1.launch_attack(hacker2)
+hacker1.launch_attack(hacker2)
+hacker1.launch_attack(hacker2)
+hacker1.launch_attack(hacker2)
+hacker1.launch_attack(hacker2)
+hacker1.reduce_trace()
+
+# Step 11: Final information
+print("\nFINAL STATUS")
+print(hacker1)
+print(hacker2)
+
+print("\n END OF SIMULATION")
