@@ -94,3 +94,12 @@ class Hacker:
                 print(f"{self._name} upgraded {self._rig.get_name()} successfully!")
                 return
         print(f"{self.__name} has no Hardware Patch in inventory.")
+                
+    # string status of hacker
+    def __str__(self):
+        return (
+            f'Hacker: {self.__name}, '
+            f'Rig name: {self.__rig.get_name() if self.__rig else "No Rig"}, '
+            f'Trace level: {self.__trace_level}, '
+            f'Inventory contents: {", ".join([asset.get_name() for asset in self.__inventory])}'
+        )
