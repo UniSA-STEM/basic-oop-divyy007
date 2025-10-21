@@ -13,3 +13,14 @@ class Asset:
         self.__name = name
         self.__description = description
         self.__isencrypted = False #default
+
+    # getters
+    def get_name(self):
+        return self.__name
+
+    def get_description(self):
+        return self.__description
+
+    def get_isencrypted(self):
+        return self.__isencrypted
+    
