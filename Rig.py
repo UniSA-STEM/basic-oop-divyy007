@@ -64,3 +64,8 @@ class Rig:
     #store an asset
     def store_asset(self, asset):
         self.__assets.append(asset)
+    
+    #displays current condition of rig
+    def _str_(self):
+        status = "Broken" if self.__broken else "Working"
+        return f"Rig: {self._name}, Damage: {self.damage}, Level: {self.__level}, Status: {status}, Assets Stored: {len(self.__assets)}"
