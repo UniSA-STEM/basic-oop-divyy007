@@ -16,7 +16,7 @@ class Hacker:
         self.__rig = None          # hacker can have one rig at a time
         self.__inventory = [Asset("CryptoToken", "Used to get a rig")]  # currency in inventory
 
-    #getters
+    # getters
     def get_name(self):
         return self.__name
 
@@ -28,7 +28,7 @@ class Hacker:
 
     def get_inventory(self):
         return self.__inventory
-    #setters
+    # setters
     def set_name(self, name):
         self.__name = name
 
@@ -41,3 +41,16 @@ class Hacker:
     # adds asset object to hacker's inventory
     def collect_asset(self, asset):
         self.__inventory.append(asset)
+    
+    # acquire a rig by using cryptotoken
+    def acquire_rig(self):
+      for asset in self.__inventory:
+        if asset.get_name() == "CryptoToken":
+            # acquire new rig
+            new_rig = Rig(f"{self.__name} Rig")
+            self.__rig = new_rig
+            self.__inventory.remove(asset)  # remove the CryptoToken after use
+            print(f"{self.__name} has acquired a new rig: {new_rig.get_name()}")
+            return
+        # if no cryptotoken found
+        print(f"{self.__name} does not have a CryptoToken to acquire a rig.")
