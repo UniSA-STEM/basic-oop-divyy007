@@ -14,7 +14,7 @@ class Rig:
         self.__damage = 0
         self.__level = 0
         self.__broken = False
-        self.__store_asset = []
+        self.__assets = []
 
     #getters
     def get_name(self):
@@ -30,7 +30,7 @@ class Rig:
         return self.__broken
 
     def get_assets(self):
-        return self.__store_asset
+        return self.__assets
 
     #setters
     def set_name(self, name):
@@ -44,3 +44,23 @@ class Rig:
 
     def set_broken(self, status):
         self.__broken = status
+
+    #increases rig's damage
+    def damage_rig(self):
+        self.__damage += 1
+        if self.__damage >= 2 + self.__level:
+            self.__broken = True
+
+    #repairs rig
+    def repair(self):
+        if self.__broken:
+            self.__damage = 0
+            self.__broken = False
+
+    #upgrades rig
+    def upgrade(self):
+        self.__level += 1
+
+    #store an asset
+    def store_asset(self, asset):
+        self.__assets.append(asset)
