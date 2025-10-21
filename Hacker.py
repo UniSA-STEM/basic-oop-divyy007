@@ -6,8 +6,8 @@ ID: <110449639>
 Username: <divyy007>
 This is my own work as defined by the University's Academic Misconduct Policy.
 """
-from rig import Rig
-from asset import Asset
+from Rig import Rig
+from Asset import Asset
 
 class Hacker:
     def __init__(self, name):
@@ -65,17 +65,17 @@ class Hacker:
     def reduce_trace(self):
         if self.__trace_level > 0:
             self.__trace_level -= 1
-        print(f"{self._name}'s trace level reduced to {self.__trace_level}")
+        print(f"{self.__name}'s trace level reduced to {self.__trace_level}")
 
     # launching attack data spikes
     def launch_attack(self, target):
         if not self.__rig:
             print(f"{self.__name} cannot launch an attack without a rig!")
             return
-        if self.__trace>= 5:
-            print(f"{self._name} cannot launch an attack with high trace level ({self._trace_level})!")
+        if self.__trace_level>= 5:
+            print(f"{self.__name} cannot launch an attack with high trace level ({self.__trace_level})!")
             return
-        print(f"{self._name} is launching an attack on {target} using {self._rig.get_name()}!")
+        print(f"{self.__name} is launching an attack on {target} using {self.__rig.get_name()}!")
         if target.get_rig():
             target.get_rig().damage_rig()
         else:
@@ -91,7 +91,7 @@ class Hacker:
             if asset.get_name() == "Hardware Patch":
                 self.__inventory.remove(asset)
                 self.__rig.upgrade()
-                print(f"{self._name} upgraded {self._rig.get_name()} successfully!")
+                print(f"{self.__name} upgraded {self.__rig.get_name()} successfully!")
                 return
         print(f"{self.__name} has no Hardware Patch in inventory.")
                 
