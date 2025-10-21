@@ -81,3 +81,16 @@ class Hacker:
         else:
             print(f"{target.get_name()} does not have a rig to attack.")
         self.__trace_level += 1
+    
+    #upgrading rig
+    def upgrade_rig(self):
+        if not self.__rig:
+            print(f"{self.__name} has no rig to upgrade.")
+            return
+        for asset in self.__inventory:
+            if asset.get_name() == "Hardware Patch":
+                self.__inventory.remove(asset)
+                self.__rig.upgrade()
+                print(f"{self._name} upgraded {self._rig.get_name()} successfully!")
+                return
+        print(f"{self.__name} has no Hardware Patch in inventory.")
