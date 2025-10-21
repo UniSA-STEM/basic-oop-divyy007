@@ -66,3 +66,18 @@ class Hacker:
         if self.__trace_level > 0:
             self.__trace_level -= 1
         print(f"{self._name}'s trace level reduced to {self.__trace_level}")
+
+    # launching attack data spikes
+    def launch_attack(self, target):
+        if not self.__rig:
+            print(f"{self.__name} cannot launch an attack without a rig!")
+            return
+        if self.__trace>= 5:
+            print(f"{self._name} cannot launch an attack with high trace level ({self._trace_level})!")
+            return
+        print(f"{self._name} is launching an attack on {target} using {self._rig.get_name()}!")
+        if target.get_rig():
+            target.get_rig().damage_rig()
+        else:
+            print(f"{target.get_name()} does not have a rig to attack.")
+        self.__trace_level += 1
