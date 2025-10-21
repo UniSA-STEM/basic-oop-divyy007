@@ -34,3 +34,9 @@ class Asset:
     def set_isencrypted(self, status):
         self.__isencrypted = status
  
+    # string representation
+    def __str__(self):
+        if self.__isencrypted:
+            return f"{self.__name}: {self.__description} [Encrypted]"
+        else:
+            return f"{self.__name}: {self.__description}"   
