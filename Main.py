@@ -50,3 +50,23 @@ print(hacker2.get_rig())
 # Step 6: Repair a broken rig using CryptoToken
 print("\nStep 6: Repairing Rig")
 hacker1.get_rig().repair()
+
+# Step 7: Encrypt an asset in inventory
+print("\nStep 7: Encrypting an Asset")
+for asset in hacker1.get_inventory():
+    if asset.get_name() == "CryptoToken":
+        asset.set_isencrypted(True)
+        print(f"{asset.get_name()} has been encrypted in inventory.")
+        break
+else:
+    print("CryptoToken not found in inventory.")
+
+# Step 8: Decrypt the asset back
+print("\nStep 8: Decrypting the Asset")
+for asset in hacker1.get_inventory():
+    if asset.get_name() == "CryptoToken":
+        asset.set_isencrypted(False)
+        print(f"{asset.get_name()} has been decrypted in inventory.")
+        break
+else:
+    print("CryptoToken not found in inventory.")
