@@ -28,3 +28,12 @@ class Hacker:
 
     def get_inventory(self):
         return self.__inventory
+    #setters
+    def set_name(self, name):
+        self.__name = name
+
+    def set_trace_level(self, level):
+        self.__trace_level = level
+
+    def set_rig(self, rig):
+        self.__rig = rig
